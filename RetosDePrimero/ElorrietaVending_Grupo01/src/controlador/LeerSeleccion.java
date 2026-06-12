@@ -42,7 +42,7 @@ public class LeerSeleccion {
 					System.out.println();
 				}
 				else
-					MostrarMensajeDeError.mostrarError(10); //no existe
+					MsgError.mostrarError(10); //no existe
 			}
 		} while (!esCorrecto); //no sale del bucle hasta que se encuentre el producto
 		
@@ -53,7 +53,7 @@ public class LeerSeleccion {
 	 * categoría indicada y solicita al usuario que elija uno de ellos.
 	 * 
 	 * @param productos - Array completo de productos disponibles en la máquina expendedora
-	 * @param categoria - Categoría seleccionada por la cual se filtrarán los productos de la máquina.
+	 * @param categoriaSeleccionada - Categoría seleccionada por la cual se filtrarán los productos de la máquina.
 	 * @return Objeto Producto seleccionado por el usuario
 	 */
 	public static Producto seleccionarProductoDeUnaCategoria(Producto productos[], String categoriaSeleccionada) {
@@ -68,7 +68,7 @@ public class LeerSeleccion {
 		int		idProductoSeleccionado = 0;
 		
 		do {
-			MostrarListaDeProductos.mostrarPorCategoria(productos, categoriaSeleccionada);
+			ListProductos.mostrarPorCategoria(productos, categoriaSeleccionada);
 			
 			System.out.printf("\t------>>>>>> ¿Qué producto desea añadir a la cesta? <<<<<<------\n");
 			System.out.print("\n\tEscriba el nº del producto: ");

@@ -4,7 +4,7 @@ package vista;
  * Se encarga de mostrar por pantalla los mensajes de los errores que puedan haber al usar una máquina expendedora.
  * Contiene como atributo la lista de mensajes de error y también líneas con el formato del mensaje.
  */
-public class MostrarMensajeDeError {
+public class MsgError {
 
 	private static final String LINEA1 = "\n\n-----------------------------------------------------------------------------------------------------------------\n--------------[✖]ERROR: ";
 	private static final String LINEA2 = "\n-----------------------------------------------------------------------------------------------------------------\n";

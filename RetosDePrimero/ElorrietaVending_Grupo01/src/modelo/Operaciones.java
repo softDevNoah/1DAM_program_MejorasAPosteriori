@@ -29,7 +29,7 @@ public class Operaciones {
 		nuevoProducto.precio = RecogerDatoDeProducto.recogerPrecio();
 		nuevoProducto.idUnico = RecogerDatoDeProducto.recogerIDUnico(productos);
 		
-		if (MostrarMensajeDePeticion.menuOpciones("¿Desea cancelar y volver atrás?", null, "Introduzca una opción") == 0)
+		if (MsgPeticion.menuOpciones("¿Desea cancelar y volver atrás?", null, "Introduzca una opción") == 0)
 			return (productos);
 		
 		productosActualizados = new Producto[cantidadActual + 1];
@@ -39,7 +39,7 @@ public class Operaciones {
 
 		productosActualizados[cantidadActual] = nuevoProducto;
 		
-		MostrarMensajeInformativo.msgOperacionRealizadaCorrectamente(1);
+		MsgInfo.msgOperacionRealizadaCorrectamente(1);
 		return (productosActualizados);
 	}
 
@@ -61,7 +61,7 @@ public class Operaciones {
 
 		if (productos.length > 0) {
 			do {
-				MostrarListaDeProductos.mostrarListaCompleta(productos);
+				ListProductos.mostrarListaCompleta(productos);
 				indiceProducto = LeerSeleccion.seleccionarProducto(productos, "modificar");
 				
 				nombreOriginal = productos[indiceProducto].nombre;
@@ -83,20 +83,20 @@ public class Operaciones {
 					}
 					
 					
-				} while (MostrarMensajeDePeticion.menuOpciones("¿Desea modificar otro dato de este producto?", null, "Introduzca una opción") == 0);
+				} while (MsgPeticion.menuOpciones("¿Desea modificar otro dato de este producto?", null, "Introduzca una opción") == 0);
 					
-				if (MostrarMensajeDePeticion.menuOpciones("¿Desea cancelar la operación?", null, "Introduzca una opción") == 0) {
+				if (MsgPeticion.menuOpciones("¿Desea cancelar la operación?", null, "Introduzca una opción") == 0) {
 						productos[indiceProducto].nombre = nombreOriginal;
 						productos[indiceProducto].categoria = categoriaOriginal;
 						productos[indiceProducto].precio = precioOriginal;
 					}
 				else 
-					MostrarMensajeInformativo.msgOperacionRealizadaCorrectamente(2);
+					MsgInfo.msgOperacionRealizadaCorrectamente(2);
 				
-			} while (MostrarMensajeDePeticion.menuOpciones("¿Desea volver al menú principal?", null, "Introduzca una opción") == 1);
+			} while (MsgPeticion.menuOpciones("¿Desea volver al menú principal?", null, "Introduzca una opción") == 1);
 		}
 		else
-			MostrarMensajeDeError.mostrarError(9);
+			MsgError.mostrarError(9);
 		return (productos);
 	}
 	
@@ -118,9 +118,9 @@ public class Operaciones {
 		cantidadActual = productos.length;
 
 		if (cantidadActual > 0) {
-			MostrarListaDeProductos.mostrarListaCompleta(productos);
+			ListProductos.mostrarListaCompleta(productos);
 			indiceProductoSeleccionado = LeerSeleccion.seleccionarProducto(productos, "eliminar");
-			if (MostrarMensajeDePeticion.menuOpciones("¿Está segurx de eliminar este producto?", null, "Introduzca una opción") == 0) {
+			if (MsgPeticion.menuOpciones("¿Está segurx de eliminar este producto?", null, "Introduzca una opción") == 0) {
 				productosActualizados = new Producto[cantidadActual - 1];
 				int j = 0;
 				for (int i = 0; i < cantidadActual; i++) {
@@ -129,13 +129,13 @@ public class Operaciones {
 							j++;
 						}
 					}
-				MostrarMensajeInformativo.msgOperacionRealizadaCorrectamente(3);
+				MsgInfo.msgOperacionRealizadaCorrectamente(3);
 				return (productosActualizados);
 			}
 			System.out.println("\n\t\t------->>>> Cancelando... <<<<-------\n");
 		}
 		else
-			MostrarMensajeDeError.mostrarError(9);
+			MsgError.mostrarError(9);
 		return (productos);
 	}
 	
@@ -152,7 +152,7 @@ public class Operaciones {
 		int		indiceActualProducto = -1;
 		
 		if (idUnico == 0) {
-			MostrarMensajeDeError.mostrarError(10);
+			MsgError.mostrarError(10);
 			return (0);
 		}
 		for (int i = 0; i < cantidadActual; i++) {
@@ -225,7 +225,7 @@ public class Operaciones {
 						esCorrecto = true;
 						}
 					else
-						MostrarMensajeDeError.mostrarError(12);
+						MsgError.mostrarError(12);
 					}
 				System.out.println();
 			} while (!esCorrecto);

@@ -29,24 +29,24 @@ public class MenuAdmin {
 		
 		while (sesionIniciada) {
 			
-			opcionElegida = MostrarMensajeDePeticion.menuOpciones("Operaciones disponibles", operaciones, "Seleccione una operación") + 1;
+			opcionElegida = MsgPeticion.menuOpciones("Operaciones disponibles", operaciones, "Seleccione una operación") + 1;
 			
 			switch (opcionElegida) {
 				case 1:
-					MostrarMensajeInformativo.msgOperacionSeleccionada(1);
+					MsgInfo.msgOperacionSeleccionada(1);
 					baseDeDatosMasActual.productos = Operaciones.nuevoProducto(baseDeDatosMasActual.productos);
 					break;
 				case 2:
-					MostrarMensajeInformativo.msgOperacionSeleccionada(2);
+					MsgInfo.msgOperacionSeleccionada(2);
 					baseDeDatosMasActual.productos = Operaciones.modificarProducto(baseDeDatosMasActual.productos);
 					break;
 				case 3:
-					MostrarMensajeInformativo.msgOperacionSeleccionada(3);
+					MsgInfo.msgOperacionSeleccionada(3);
 					baseDeDatosMasActual.productos = Operaciones.eliminarProducto(baseDeDatosMasActual.productos);
 					break;
 				case 4:
-					MostrarMensajeInformativo.msgOperacionSeleccionada(4);
-					MostrarMensajeInformativo.msgEstadoSesionCorrecto("", 1);
+					MsgInfo.msgOperacionSeleccionada(4);
+					MsgInfo.msgEstadoSesionCorrecto("", 1);
 					sesionIniciada = false;
 					break;
 			}
@@ -85,7 +85,7 @@ public class MenuAdmin {
 		int		numUsuario = 0;
 		
 		do {
-			MostrarMensajeDePeticion.msgIntroduzcaDatoSesion(0);
+			MsgPeticion.msgIntroduzcaDatoSesion(0);
 			entrada = Main.teclado.nextLine().trim();
 			
 			if (checkUsuario(entrada, administradores))
@@ -96,7 +96,7 @@ public class MenuAdmin {
 		if (esCorrecto) {
 			numUsuario = indiceUsuario(entrada, administradores);
 
-		MostrarMensajeDePeticion.msgIntroduzcaDatoSesion(1);
+		MsgPeticion.msgIntroduzcaDatoSesion(1);
 		entrada = Main.teclado.nextLine();
 		
 		esCorrecto = false;
@@ -106,7 +106,7 @@ public class MenuAdmin {
 
 		}
 		if (esCorrecto)
-			MostrarMensajeInformativo.msgEstadoSesionCorrecto(administradores[numUsuario].nombre, 0);
+			MsgInfo.msgEstadoSesionCorrecto(administradores[numUsuario].nombre, 0);
 		return (esCorrecto);
 	}
 	
@@ -127,7 +127,7 @@ public class MenuAdmin {
 					existe = true;
 			}
 			if (!existe)
-				MostrarMensajeDeError.usuarioNoExiste(entrada);
+				MsgError.usuarioNoExiste(entrada);
 		}
 		return (existe);
 	}
@@ -167,7 +167,7 @@ public class MenuAdmin {
 		if (ValidarTipoDeEntrada.estaDentroDeLimites(entrada) && ValidarTipoDeEntrada.checkSoloAlfanumericoEspaciado(entrada)) {
 			if (!entrada.equals(administradores[indiceUsuario].contraseña)) {
 				existe = false;
-				MostrarMensajeDeError.mostrarError(7);
+				MsgError.mostrarError(7);
 			}
 		}
 		else

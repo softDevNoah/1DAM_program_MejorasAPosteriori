@@ -19,12 +19,12 @@ public class ValidarTipoDeEntrada {
 		boolean esCorrecto = true;
 		
 		if (entrada.isEmpty()) {
-			MostrarMensajeDeError.mostrarError(0);
+			MsgError.mostrarError(0);
 			esCorrecto = false;
 		}
 		else if (entrada.length() > 8) {
 			esCorrecto =false;
-			MostrarMensajeDeError.mostrarError(1);
+			MsgError.mostrarError(1);
 		}
 		return (esCorrecto);
 	}
@@ -45,7 +45,7 @@ public class ValidarTipoDeEntrada {
 				esCorrecto = false;
 		}
 		if (!esCorrecto)
-			MostrarMensajeDeError.mostrarError(2);
+			MsgError.mostrarError(2);
 		return (esCorrecto);
 	}
 	
@@ -62,7 +62,7 @@ public class ValidarTipoDeEntrada {
 				esCorrecto = false;
 		}
 		if (!esCorrecto)
-			MostrarMensajeDeError.mostrarError(4);
+			MsgError.mostrarError(4);
 		return (esCorrecto);
 	}
 	
@@ -84,7 +84,7 @@ public class ValidarTipoDeEntrada {
 				esCorrecto = false;
 		}
 		if (!esCorrecto)
-			MostrarMensajeDeError.mostrarError(4);
+			MsgError.mostrarError(4);
 		return (esCorrecto);
 	}
 	
@@ -101,7 +101,7 @@ public class ValidarTipoDeEntrada {
 				esCorrecto = false;
 		}
 		if (!esCorrecto)
-			MostrarMensajeDeError.mostrarError(3);
+			MsgError.mostrarError(3);
 		return (esCorrecto);
 	}
 	
@@ -128,19 +128,19 @@ public class ValidarTipoDeEntrada {
 				
 				if (numPuntos > 1) {
 					esCorrecto = false;
-					MostrarMensajeDeError.mostrarError(5);
+					MsgError.mostrarError(5);
 					return (esCorrecto);
 				}
 			}
 			else {
 				esCorrecto = false;
-				MostrarMensajeDeError.mostrarError(5);
+				MsgError.mostrarError(5);
 				return (esCorrecto);
 			}		
 		}
 		
 		if (!hayNums) {
-			MostrarMensajeDeError.mostrarError(5);
+			MsgError.mostrarError(5);
 			return (hayNums);
 		}
 		return (esCorrecto);

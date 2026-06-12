@@ -34,7 +34,7 @@ public class MenuCliente {
 				
 			while (seguirComprando) {
 				
-				categSelect = producto.categorias[MostrarMensajeDePeticion.menuOpciones("Categorías de productos", producto.categorias, "Elija una categoría")];
+				categSelect = producto.categorias[MsgPeticion.menuOpciones("Categorías de productos", producto.categorias, "Elija una categoría")];
 				seguirEnMismaCategoria = true;
 				
 				while (seguirEnMismaCategoria) {
@@ -44,10 +44,10 @@ public class MenuCliente {
 					if ((precioTotal + producto.precio) < 250.00) {
 						precioTotal += producto.precio;
 						cestaDeCompra = Operaciones.añadirProductoALaCesta(cestaDeCompra, producto);
-						decisionDeCompra = MostrarMensajeDePeticion.menuOpciones("Operaciones disponibles", opcionesDeCompra, "Elija una operación");
+						decisionDeCompra = MsgPeticion.menuOpciones("Operaciones disponibles", opcionesDeCompra, "Elija una operación");
 						if (decisionDeCompra == 0) {
-							MostrarListaDeProductos.mostrarCestaCompra(cestaDeCompra, precioTotal);
-							if (MostrarMensajeDePeticion.menuOpciones("¿He terminado de añadir productos?", null, "Seleccione una respuesta:") == 0) {
+							ListProductos.mostrarCestaCompra(cestaDeCompra, precioTotal);
+							if (MsgPeticion.menuOpciones("¿He terminado de añadir productos?", null, "Seleccione una respuesta:") == 0) {
 								seguirEnMismaCategoria = false;
 								seguirComprando = false;
 							}
@@ -59,21 +59,21 @@ public class MenuCliente {
 							seguirEnMismaCategoria = false;				
 					}
 					else {
-						MostrarMensajeDeError.mostrarError(11);
+						MsgError.mostrarError(11);
 						seguirEnMismaCategoria = false;
 						seguirComprando = false;
 					}
 				}
 			}
 
-			if (MostrarMensajeDePeticion.menuOpciones("¿Está de acuerdo con el importe total y desea pagar?", null, "Introduzca una opción") == 0) {
+			if (MsgPeticion.menuOpciones("¿Está de acuerdo con el importe total y desea pagar?", null, "Introduzca una opción") == 0) {
 				Operaciones.pasarelaDePago(precioTotal);
 			}
 			else			
 				System.out.println("\n\t------->>>> Cancelando compra... <<<<-------\n");
 		}
 		else
-			MostrarMensajeDeError.mostrarError(9);
+			MsgError.mostrarError(9);
 	}
 
 		

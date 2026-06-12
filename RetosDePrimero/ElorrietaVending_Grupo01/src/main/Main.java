@@ -16,10 +16,10 @@ public class Main {
 		String		opcionesMenu[] = {"Comprar productos", "Administrar máquina expendedora", "Apagar máquina expendedora"};
 		
 		while (seleccionPrograma != 2) {
-			MostrarMensajeInformativo.msgBienvenida();
+			MsgInfo.msgBienvenida();
 			teclado.nextLine();
 			
-			seleccionPrograma = MostrarMensajeDePeticion.menuOpciones("Operaciones disponibles", opcionesMenu, "Seleccione una operación");
+			seleccionPrograma = MsgPeticion.menuOpciones("Operaciones disponibles", opcionesMenu, "Seleccione una operación");
 			
 			if (seleccionPrograma == 0) {
 				MenuCliente.ejecutarCliente(baseDeDatos.productos);

@@ -21,7 +21,7 @@ public class RecogerDatoDeProducto {
 		boolean	esCorrecto = false;
 		
 		do {
-			MostrarMensajeDePeticion.msgAsigneCategoria(categorias);
+			MsgPeticion.msgAsigneCategoria(categorias);
 			entrada = Main.teclado.nextLine().trim();
 
 			if (checkCategoria(entrada, categorias))
@@ -46,7 +46,7 @@ public class RecogerDatoDeProducto {
 		boolean	esCorrecto = false;
 		
 		do {
-			MostrarMensajeDePeticion.msgAsigneDato(1);
+			MsgPeticion.msgAsigneDato(1);
 			entrada = Main.teclado.nextLine().trim();
 			
 			if (checkNombre(entrada, productos))
@@ -68,13 +68,13 @@ public class RecogerDatoDeProducto {
 		boolean	esCorrecto = false;
 		
 		do {
-			MostrarMensajeDePeticion.msgAsigneDato(2);
+			MsgPeticion.msgAsigneDato(2);
 			entrada = Main.teclado.nextLine().trim();
 			
 			if (ValidarTipoDeEntrada.estaDentroDeLimites(entrada) && ValidarTipoDeEntrada.checkSoloNumeroDecimal(entrada)) {
 				precio = Double.parseDouble(entrada);
 				if (precio < 0.35 || precio > 5) // se ha determinado poner unos limites al precio de los productos
-					MostrarMensajeDeError.mostrarError(16);
+					MsgError.mostrarError(16);
 				else
 					esCorrecto = true;
 			}
@@ -101,18 +101,18 @@ public class RecogerDatoDeProducto {
 		do {
 			esCorrecto = true;
 			
-			MostrarMensajeDePeticion.msgAsigneDato(3);
+			MsgPeticion.msgAsigneDato(3);
 			entrada = Main.teclado.nextLine().trim();
 			
 			if (ValidarTipoDeEntrada.estaDentroDeLimites(entrada) && ValidarTipoDeEntrada.checkSoloNumeroPositivoEntero(entrada)) {
 				idUnico = Integer.parseInt(entrada);
 				
 				if (idUnico == 0) { //unico numero entero que no serviria
-					MostrarMensajeDeError.mostrarError(15);
+					MsgError.mostrarError(15);
 					esCorrecto = false;
 				}
 				else if (!LeerSeleccion.checkIDUnico(productos, idUnico)){ //revisa que sea unico
-					MostrarMensajeDeError.mostrarError(14);
+					MsgError.mostrarError(14);
 					esCorrecto = false;
 				}
 			}
@@ -140,7 +140,7 @@ public class RecogerDatoDeProducto {
 					esCorrecto = true;	
 			}
 			if (!esCorrecto)
-			MostrarMensajeDeError.mostrarError(6);
+			MsgError.mostrarError(6);
 		}
 		return (esCorrecto);
 	}
@@ -165,14 +165,14 @@ public class RecogerDatoDeProducto {
 			}
 			
 			if (!hayLetras) {
-				MostrarMensajeDeError.mostrarError(13);
+				MsgError.mostrarError(13);
 				return (!esCorrecto);
 			}
 			
 			for (int i = 0; i < totalProductos; i++) {
 				if (entrada.equals(productos[i].nombre)) {
 					esCorrecto = false; //si el nombre ya se usa en otro producto, tampoco se puede
-					MostrarMensajeDeError.nombreYaEnUso(productos[i].nombre);
+					MsgError.nombreYaEnUso(productos[i].nombre);
 				}
 			}
 		}

@@ -5,7 +5,7 @@ import modelo.*;
 /**
  * Gestiona la visualizacion en pantalla de los elementos de array de de productos existentes en una máquina expendedora.
  */
-public class MostrarListaDeProductos {
+public class ListProductos {
 
 	/**
 	 * Muestra la lista completa de productos y sus atributos correspondientes. Si no hay, muestra un mensaje de error.
@@ -23,7 +23,7 @@ public class MostrarListaDeProductos {
 				System.out.printf("\t%s\t\t%d\t\t%s\t\t%.2f€)\n\n", productos[i].nombre, productos[i].idUnico, productos[i].categoria, productos[i].precio);
 		}
 		else
-			MostrarMensajeDeError.mostrarError(9);
+			MsgError.mostrarError(9);
 	}
 	
 	/**
@@ -58,10 +58,10 @@ public class MostrarListaDeProductos {
 				System.out.println();
 			}
 			else
-				MostrarMensajeDeError.mostrarError(10);
+				MsgError.mostrarError(10);
 		}
 		else
-			MostrarMensajeDeError.mostrarError(9);
+			MsgError.mostrarError(9);
 	}
 	
 	/**

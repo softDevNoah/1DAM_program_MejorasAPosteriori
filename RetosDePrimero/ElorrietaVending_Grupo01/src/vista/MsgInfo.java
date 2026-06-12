@@ -3,7 +3,7 @@ package vista;
 /**
  * Esta clase recoge los métodos que se encargan de mostrar mensajes por pantalla de tipo informativo.
  */
-public class MostrarMensajeInformativo {
+public class MsgInfo {
 	
 	/**
 	 * Muestra la pantalla de bienvenida al inicio del programa.

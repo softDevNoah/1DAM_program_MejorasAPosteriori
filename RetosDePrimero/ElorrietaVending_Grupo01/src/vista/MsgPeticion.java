@@ -6,7 +6,7 @@ import main.*;
 /**
  * Visualización por pantalla de mensajes de petición de diversos datos y menús de opciones.
  */
-public class MostrarMensajeDePeticion {
+public class MsgPeticion {
 
 	/**
 	 * Muestra el título del menú, las opciones recogidas por parámetro y la petición de selección de una de éstas.
@@ -43,7 +43,7 @@ public class MostrarMensajeDePeticion {
 				opcionSeleccionada = Integer.parseInt(entrada);
 				
 				if ((opcionSeleccionada < 1) || (opcionSeleccionada > opciones.length)) {
-					MostrarMensajeDeError.mostrarError(8);
+					MsgError.mostrarError(8);
 					esCorrecto = false;
 				}
 			}
