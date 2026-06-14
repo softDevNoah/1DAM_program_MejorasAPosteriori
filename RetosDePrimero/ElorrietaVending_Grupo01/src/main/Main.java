@@ -5,15 +5,22 @@ import vista.*;
 
 import java.util.Scanner;
 
+@SuppressWarnings("java:S106")
 public class Main {
-	
-	public static Scanner teclado = new Scanner(System.in);
-	
-	public static void main(String[] args) {
+
+	private static final String DESPEDIDA = """
+	················································································································
+	%18s---------->>> Apagando máquina... ¡Hasta la próxima! <<<<<--------------
+	················································································································
+	""".formatted("");
+
+	public static final Scanner teclado = new Scanner(System.in);
+
+	static void main() {
 		
 		BaseDeDatos baseDeDatos = new BaseDeDatos();
 		int			seleccionPrograma = -1;
-		String		opcionesMenu[] = {"Comprar productos", "Administrar máquina expendedora", "Apagar máquina expendedora"};
+		String[]		opcionesMenu = {"Comprar productos", "Administrar máquina expendedora", "Apagar máquina expendedora"};
 		
 		while (seleccionPrograma != 2) {
 			MsgInfo.msgBienvenida();
@@ -35,9 +42,7 @@ public class Main {
 			System.out.println("\n".repeat(10));
 		}
 		
-		System.out.println("\n\n················································································································");
-		System.out.println("	         ---------->>> Apagando máquina... ¡Hasta la próxima! <<<<<--------------");
-		System.out.println("················································································································\n");
+		System.out.println(DESPEDIDA);
 		
 		teclado.close();
 	}	
